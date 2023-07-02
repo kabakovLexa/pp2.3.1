@@ -9,7 +9,7 @@
 <div>
     <h2>
     <th:block th:each="user : ${users}">
-        <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId() + ' '
+        <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId() + ')  '
         + user.getFirstName() + '   ' + user.getLastName()}">user</a>
         <br><br>
     </th:block>
