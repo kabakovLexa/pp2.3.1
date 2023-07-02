@@ -8,7 +8,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "name")
     private String firstName;
@@ -26,10 +26,9 @@ public class User {
     }
 
     public User() {
-
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

@@ -13,6 +13,9 @@ public class UserDaoImp implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
+    public void UserDao() {
+    }
+
     @Override
     public void addUser(User user) {
         entityManager.persist(user);
@@ -20,7 +23,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public User getUser(int id) {
-        return entityManager.find(User.class,id);
+        return entityManager.find(User.class, id);
     }
 
     @Override

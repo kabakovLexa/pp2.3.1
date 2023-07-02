@@ -49,7 +49,7 @@ public class DatabaseConfig {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource);
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        em.setPackagesToScan("web.models");
+        em.setPackagesToScan("web");
         em.setJpaProperties(hibernateProperties());
         return em;
     }
