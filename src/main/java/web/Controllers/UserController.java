@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/")
     public String getStart(ModelMap model) {
-        User user = new User("Name1","LastName1", "email1");
+        User user = new User("Name","LastName", "email");
         userService.addUser(user);
         model.addAttribute("users", userService.getAllUsers());
         return "index";
