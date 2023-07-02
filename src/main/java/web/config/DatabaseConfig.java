@@ -37,6 +37,7 @@ public class DatabaseConfig {
         dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
     }
+
     public Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
@@ -44,6 +45,7 @@ public class DatabaseConfig {
         properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         return properties;
     }
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Autowired DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -53,6 +55,7 @@ public class DatabaseConfig {
         em.setJpaProperties(hibernateProperties());
         return em;
     }
+
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();

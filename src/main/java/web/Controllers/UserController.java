@@ -60,7 +60,7 @@ public class UserController {
 
     @PostMapping("/{id}")
     public String editUser(@ModelAttribute("user") User user,
-                         BindingResult bindingResult, @PathVariable("id") int id) {
+                           BindingResult bindingResult, @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
             return "/edit_user";
 
