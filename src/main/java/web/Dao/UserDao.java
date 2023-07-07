@@ -13,5 +13,5 @@ public interface UserDao {
 
     List<User> getAllUsers();
 
-    void dropUserById(int id);
+    void deleteUser(int id);
 }

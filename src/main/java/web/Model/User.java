@@ -8,6 +8,7 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
+    @SequenceGenerator(name = "seq_user", allocationSize = 1)
     private int id;
 
     @Column(name = "name")
@@ -25,10 +26,15 @@ public class User {
         this.email = email;
     }
 
-    public User() {}
+    public User() {
+    }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

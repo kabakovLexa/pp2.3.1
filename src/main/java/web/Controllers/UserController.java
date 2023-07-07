@@ -19,11 +19,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    public void UserController() {
-    }
-
     @GetMapping("/")
-    public String getStart(ModelMap model) {
+    public String getAllUsers(ModelMap model) {
         model.addAttribute("users", userService.getAllUsers());
         return "index";
     }
@@ -34,30 +31,28 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/adduser")
+    @GetMapping("/new_user")
     public String getAddUser(@ModelAttribute("user") User user) {
-        return "add_user";
+        return "new_user";
     }
 
     @PostMapping("/")
-    public String addUser(@ModelAttribute("user") User user,
-                          BindingResult bindingResult) {
+    public String addUser(@ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "add_user";
+            return "new_user";
         }
         userService.addUser(user);
         return "redirect:/";
     }
 
     @DeleteMapping("/{id}")
-    public String dropUser(@PathVariable("id") int id) {
-
-        userService.dropUserById(id);
+    public String deleteUser(@PathVariable("id") int id) {
+        userService.deleteUser(id);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/edit_user")
-    public String getEdit(ModelMap model, @PathVariable("id") int id) {
+    public String editUserForm(ModelMap model, @PathVariable("id") int id) {
         model.addAttribute("user", userService.getUser(id));
         return "edit_user";
     }
@@ -67,9 +62,7 @@ public class UserController {
                            BindingResult bindingResult, @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
             return "/edit_user";
-
         userService.updateUser(id, user);
         return "redirect:/";
     }
-
 }

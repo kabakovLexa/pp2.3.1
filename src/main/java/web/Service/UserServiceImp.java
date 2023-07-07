@@ -19,8 +19,6 @@ public class UserServiceImp implements UserService {
         this.userDao = userDao;
     }
 
-    public void UserServiceImp() {}
-
     @Override
     public void addUser(User user) {
         userDao.addUser(user);
@@ -42,7 +40,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void dropUserById(int id) {
-        userDao.dropUserById(id);
+    public void deleteUser(int id) {
+        userDao.deleteUser(id);
     }
 }

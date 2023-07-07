@@ -25,10 +25,8 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void updateUser(int id, User user) {
-        User userToBeUpdated = getUser(id);
-        userToBeUpdated.setFirstName(user.getFirstName());
-        userToBeUpdated.setLastName(user.getLastName());
-        userToBeUpdated.setEmail(user.getEmail());
+        user.setId(id);
+        entityManager.merge(user);
     }
 
     @Override
@@ -37,7 +35,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void dropUserById(int id) {
+    public void deleteUser(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
 }
