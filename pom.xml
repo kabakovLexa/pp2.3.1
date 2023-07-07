@@ -70,19 +70,6 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>2.4</version>
-          <configuration>
-            <warSourceDirectory>src/webapp</warSourceDirectory>
-            <warName>spring_mvc</warName>
-            <failOnMissingWebXml>false</failOnMissingWebXml>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <plugins>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
@@ -92,6 +79,7 @@
         </configuration>
       </plugin>
     </plugins>
+    </pluginManagement>
     <finalName>PP_2_3_1_Spring_crud_mvc</finalName>
   </build>
 </project>
