@@ -40,5 +40,4 @@ public class UserDaoImp implements UserDao {
     public void dropUserById(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
-
 }
