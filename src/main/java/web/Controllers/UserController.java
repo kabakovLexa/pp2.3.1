@@ -62,7 +62,7 @@ public class UserController {
         return "edit_user";
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public String editUser(@ModelAttribute("user") User user,
                            BindingResult bindingResult, @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
