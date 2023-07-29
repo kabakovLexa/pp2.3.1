@@ -3,30 +3,26 @@ package web.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
-    @SequenceGenerator(name = "seq_user", allocationSize = 1)
     private int id;
-
     @Column(name = "name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "email")
-    private String email;
-
-    public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+    private String name;
+    @Column(name = "surname")
+    private String surname;
+    @Column(name = "salary")
+    private int salary;
 
     public User() {
+    }
+
+    public User(String name, String surname, int salary) {
+        this.name = name;
+        this.surname = surname;
+        this.salary = salary;
     }
 
     public int getId() {
@@ -37,28 +33,27 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getEmail() {
-        return email;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }
-
