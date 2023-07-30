@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
 </head>
 <body>
+
+
 <h1>All Users</h1>
 <table>
     <tr>
         <th>Name</th>
         <th>Surname</th>
         <th>Salary</th>
-
-
+    </tr>
+    <tr th:each="user : ${allUsers}">
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getSurname()}"></td>
+        <td th:text="${user.getSalary()}"></td>
+    </tr>
 </table>
 </body>
 </html>
