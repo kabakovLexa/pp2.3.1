@@ -3,6 +3,8 @@ package web.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import web.Dao.UserDAO;
 import web.Model.User;
@@ -48,6 +50,25 @@ public class UserController {
     public String addUser(@ModelAttribute("user") User user) {
 
         userService.addUser(user);
+        return "redirect:/";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editUserForm(ModelMap model, @PathVariable("id") int id) {
+        model.addAttribute("user", userService.getUserId(id));
+        return "edit";
+    }
+    @PutMapping("/{id}")
+    public String editUser(@ModelAttribute("user") User user,
+                           BindingResult bindingResult, @PathVariable("id") int id) {
+        if (bindingResult.hasErrors())
+            return "/edit";
+        userService.updateUser(id, user);
+        return "redirect:/";
+    }
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        userService.deleteUser(id);
         return "redirect:/";
     }
 
