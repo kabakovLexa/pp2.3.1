@@ -21,13 +21,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUser(String name, String surname, int salary) {
-        userDAO.addUser(name, surname, salary);
+    public void addUser(User user) {
+        userDAO.addUser(user);
 
     }
 
     @Override
     public List<User> allUsers() {
         return userDAO.allUsers();
+    }
+
+    @Override
+    public User getUserId(int id) {
+        return userDAO.getUserId(id);
     }
 }

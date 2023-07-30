@@ -5,6 +5,8 @@ import web.Model.User;
 import java.util.List;
 
 public interface UserDAO {
-    public void addUser(String name, String surname, int salary);
+
     public List<User> allUsers();
+    public User getUserId(int id);
+    public void addUser(User user);
 }
