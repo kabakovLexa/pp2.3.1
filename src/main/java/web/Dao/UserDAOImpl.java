@@ -16,15 +16,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void addUser(User user) {
-
-
         entityManager.persist(user);
-
-
     }
+
     @Override
     public User getUserId(int id) {
-        return entityManager.find(User.class,id);
+        return entityManager.find(User.class, id);
     }
 
     @Override
@@ -36,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void updateUser(int id,User user) {
+    public void updateUser(int id, User user) {
         User user1 = getUserId(id);
         user1.setName(user.getName());
         user1.setSurname(user.getSurname());
@@ -51,7 +48,6 @@ public class UserDAOImpl implements UserDAO {
             entityManager.remove(user);
         }
     }
-
 
 
 }

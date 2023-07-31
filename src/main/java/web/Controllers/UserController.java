@@ -24,16 +24,11 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String getAllShowUsers(Model model){
-
-
-        List<User> list = new ArrayList<>();
-        list = userService.allUsers();
-        model.addAttribute("allUsers",list);
-
-
+    public String getAllShowUsers(Model model) {
+        model.addAttribute("allUsers", userService.allUsers());
         return "allUsers";
     }
+
     @PostMapping("/search")
     public String searchUserId(@RequestParam int id, Model model) {
         User user = userService.getUserId(id);
@@ -58,6 +53,7 @@ public class UserController {
         model.addAttribute("user", userService.getUserId(id));
         return "edit";
     }
+
     @PutMapping("/{id}")
     public String editUser(@ModelAttribute("user") User user,
                            BindingResult bindingResult, @PathVariable("id") int id) {
@@ -66,6 +62,7 @@ public class UserController {
         userService.updateUser(id, user);
         return "redirect:/";
     }
+
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);

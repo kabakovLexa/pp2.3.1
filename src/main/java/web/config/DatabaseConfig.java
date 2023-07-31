@@ -28,7 +28,6 @@ public class DatabaseConfig {
     @Autowired
     private Environment env;
 
-
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -46,7 +45,6 @@ public class DatabaseConfig {
         properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         return properties;
     }
-
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Autowired DataSource dataSource) {
